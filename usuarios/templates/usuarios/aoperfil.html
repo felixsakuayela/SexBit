@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} Colega {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+      <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                      {% for dado in dados %}
+                        <h2>
+                            {% if dado.Nome_Completo != None %}
+                                {{ dado.Nome_Completo }}
+                            {% endif%}
+                        </h2>
+                      {% endfor %}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="Library">
+         <div class="container">
+
+            <h3>{{ perfil }}</h3>
+
+        <ul>
+            {% for dado in dados%}
+
+            {% if dado.Nome_Completo != None %}<li>Nome: {{ dado.Nome_Completo }} </li> {% endif%}
+            {% if dado.Gênero != None %}<li>Gênero: {{ dado.Gênero }} </li> {% endif%}
+            {% if dado.Número_do_BI_ou_Passaporte != None %}<li>Número do Bi (ou Passaporte): {{ dado.Número_do_BI_ou_Passaporte }}  </li>{% endif%}
+            {% if dado.Data_de_Emissão != None %}<li>Data de Emissão: {{ dado.Data_de_Emissão }} </li>{% endif%}
+            {% if dado.Válido_Até != None %}<li>Válido Até: {{ dado.Válido_Até }}  </li> {% endif%}
+            {% if dado.Data_de_Nascimento != None %}<li>Data de Nascimento: {{ dado.Data_de_Nascimento }}  </li> {% endif%}
+            {% if dado.Nacionalidade != None %}<li>Nacionalidade: {{ dado.Nacionalidade }}  </li> {% endif%}
+            {% if dado.País_e_Província_de_Residência != None %}<li>País e Província de Residência: {{ dado.País_e_Província_de_Residência }}  </li> {% endif%}
+            {% if dado.Curso != None %}<li>Curso Matriculado: {{ dado.Curso }}  </li> {% endif%}
+            {% if dado.Ano != None %}<li>Ano de Frequência: {{ dado.Ano }}  </li> {% endif%}
+            {% if dado.Turma != None %}<li>Turma: {{ dado.Turma }}  </li> {% endif%}
+
+            {% endfor %}
+
+        </ul>
+
+         </div>
+
+      </div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Insirir dados no Perfil{% endblock %}
+
+{% block content %}
+      <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                     <h2>Insira e Complete o seu Perfil com os dados mais importantes:</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    <div class="offset-1 col-10 list-div">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control-submit-button"value="Salvar Perfil">
+        </form>
+    </div>
+{% endblock %}

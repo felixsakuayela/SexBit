@@ -1,0 +1,15 @@
+
+
+<span>Followers: {{followers}}</span>
+<br>
+<span>Following: {{user_following}}</span>
+
+<br><br>
+
+{% if user_obj.id != request.user.id %}
+{% if is_followed %}
+<a href="{% url 'follow' user_obj.id %}" style="border: 1px solid; background: red; padding:10px; color: white;">Desassinar</a>
+{% else %}
+<a href="{% url 'follow' user_obj.id %}" style="border: 1px solid; background: green; padding:10px; color: white;">Assinar</a>
+{% endif %}
+{% endif %}

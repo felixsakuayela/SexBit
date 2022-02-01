@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Carregar Foto de Perfil{% endblock %}
+
+{% block content %}
+      <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                     <h2>Carregar Foto de Perfil:</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+<div class="Library">
+ <div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="Titulo_foto" >Legenda</label>
+            <input type="text" class="form-control-input" id="Titulo_foto" name="Titulo_foto">
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label for="File_foto" >Foto</label>
+            <input type="file" class="form-control-input" id="File_foto" name="File_foto">
+            <div class="help-block with-errors"></div>
+        </div>
+
+        <button type="submit" class="form-control-submit-button"><a>CARREGAR FOTO</a></button>
+
+    </form>
+
+     </div>
+</div>
+
+{% endblock %}

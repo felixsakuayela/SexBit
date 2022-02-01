@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Sala de {{ nome2 }} {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+      <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                      <h2>
+                            {% if nome != None %} {{ nome }} {% endif %} Seja Bem Vindo ao Hight Class
+                      </h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="Library">
+         <div class="container">
+
+        <ul>
+            {% for dado in dados%}
+            <h3>DADOS PESSOAIS</h3>
+
+            {% if dado.Nome_Completo != None %}<li>Nome: {{ dado.Nome_Completo }} </li> {% endif%}
+            {% if dado.Gênero != None %}<li>Gênero: {{ dado.Gênero }} </li> {% endif%}
+
+            {% endfor %}
+
+
+        </ul>
+
+         </div>
+
+          <div class="offset-1 col-10 list-div">
+
+               {% for mensagem in mensagens %}
+                    <p>
+                         {% if user == mensagem.user %} {{nome1 }}: {% else %} {{ nome2 }}: {% endif %} {{ mensagem }}
+                    </p>
+              {% endfor %}
+
+          </div>
+
+          <div class="offset-1 col-10 list-div">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn tbn-success" value="Enviar Mensagem">
+            </form>
+        </div>
+
+
+      </div>
+
+{% endif %}
+
+{% endblock %}

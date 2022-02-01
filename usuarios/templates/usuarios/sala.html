@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Sala de {{nome}} {% endblock %}
+
+{% block content %}
+ <hr>
+
+{% include "includes/followdetails.html" %}
+
+ <br><br>
+
+
+        <hr>
+        <br>
+    <div class="bc1 container">
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="{% url 'index' %}"><div class="mouse-default btn-solid-lg page-scroll"><span class="">VOLTAR</span></div></a>
+            </div> <!-- end of col -->
+        </div>
+    </div>
+
+    <hr>
+
+    <br>
+            <!-- Accordion -->
+    <div class="accordion-container" id="accordionOne">
+
+       <div class="bc2 container">
+            <div id="details" class="accordion">
+
+                <div></div><!-- end of area-1 on same line and no space between comments to eliminate margin white space -->
+
+                <div class="bot-pers2" id="headingTwo">
+                    <span class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="button">
+                        <span class="circle-numbering">#</span><span class="accordion-title">Sobre {{nome}}</span>
+                    </span>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionOne">
+                    <div class="accordion-body">
+                        Aria partners with businesses to business growth and development ideas including environment analysis, plan execution and evaluation.
+                    </div>
+                </div>
+
+
+            </div>
+       </div>
+            <!-- end of accordion -->
+    </div> <!-- end of accordion -->
+<br>
+{% include "includes/linkmensagem.html" %}
+
+    <div id="intro" class="form-2">
+
+        <div class="bc3 align-center counter container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="text-container">
+
+                        <div class="section-title">{{nome|upper}} {{user_obj}}</div>
+                        <h2>We Offer Some Of The Best Business Growth Services In Town</h2>
+                        <p>Launching a new company or developing the market position of an existing one can be quite an overwhelming processs at times.</p>
+                         <ulm class="list-unstyled li-space-lg">
+                            <li><a href=""><i class="fab2 fab fa-bitcoin"></i></a><span class="num">76</span></li>
+                            <li><a href=""><i class="fab fa-bitcoin"></i></a><span class="num">1288</span></li>
+                        </ulm>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-7">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{{MEDIA_URL}}{{foto}}" alt="foto de perfil">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of intro -->
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Sala Vip {% endblock %}
+
+{% block content %}
+
+        <div class="about-bg">
+        {% if user.is_authenticated %}
+
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                        <h2>Bem Vindo à Sala VIP</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+        {% else %}
+
+            <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                        <h2>Bem Vindo à Sala VIP para usuários sem sessão</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

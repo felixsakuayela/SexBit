@@ -1,0 +1,57 @@
+
+<div id="intro2" class="form-2">
+
+    <div class="bc3 align-center counter container">
+        <div class="row">
+
+            <div class="col-lg-5">
+                <div class="text-container">
+
+                    <div class="section-title">{{ comentario2.commenter }} </div>
+
+                    <h2>{{ comentario2.C_Texto }}</h2>
+
+                    <ul class="list-unstyled li-space-lg">
+                        <li><a href=""><i class="fab2 fab fa-bitcoin"></i></a><span class="num">76</span></li>
+                        <li><a href=""><i class="fab fa-bitcoin"></i></a><span class="num">1288</span></li>
+                    </ul>
+                </div> <!-- end of text-container -->
+            </div> <!-- end of col -->
+
+
+            <div class="col-lg-7">
+                <div class="image-container">
+                    <img src="{{MEDIA_URL}}{{comentario2.C_Foto}}" usemap=""  width="320" height="240" >
+                </div> <!-- end of image-container -->
+            </div>
+
+
+
+            <div class="col-lg-7">
+                <div class="image-container">
+                    <video controls width="320" height="240" >
+                    <source src="{{MEDIA_URL}}{{comentario2.C_Video}}" type="video/mp4">
+                    </video>
+                </div> <!-- end of image-container -->
+            </div> <!-- end of col -->
+
+        {% if allcomentario %}
+        {% include "postes/lcoment2.html" %}
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ formcomentario2 }}
+
+          <!-- <input type="hidden" name="comentador" value="{{poste.User_Poste}}">-->
+         <button type="submit" class="btn btn-success btn-block">Comentar</button>
+        </form>
+
+        </div> <!-- end of row -->
+
+        <br><hr><br>
+
+    </div> <!-- end of container -->
+</div> <!-- end of basic-1 -->
+<!-- end of intro -->
+

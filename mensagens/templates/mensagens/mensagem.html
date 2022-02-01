@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Conversa: {{nome1|upper}} vs {{nome2|upper}}{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+      <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                      <h2>
+                            {% if nome != None %} {{ nome }} {% endif %} Mensagem BitSex
+                      </h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="Library">
+         <div class="container">
+
+
+         </div>
+
+          <div class="offset-1 col-10 list-div">
+
+               {% for mensagem in mensagens %}
+                    <p>
+                         {% if user == mensagem.user %} {{nome1 }}: {% else %} {{ nome2 }}: {% endif %} {{ mensagem }}
+                    </p>
+              {% endfor %}
+
+          </div>
+
+          <div class="offset-1 col-10 list-div">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn tbn-success" value="Enviar Mensagem">
+            </form>
+        </div>
+
+
+      </div>
+
+{% endif %}
+
+{% endblock %}

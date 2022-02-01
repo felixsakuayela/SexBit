@@ -1,0 +1,28 @@
+<div id="intro" class="form-2">
+
+        <div class="bc3 align-center counter container">
+            {% for v in pub %}
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="text-container">
+
+                        <div class="section-title">{{ v.Nome_video }}</div>
+                        <h2>{{ v.Titulo_video }}</h2>
+                        <ul class="list-unstyled li-space-lg">
+                            <li><a href=""><i class="fab2 fab fa-bitcoin"></i></a><span class="num">76</span></li>
+                            <li><a href=""><i class="fab fa-bitcoin"></i></a><span class="num">1288</span></li>
+                        </ul>
+
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-7">
+                    <div class="image-container">
+                        <video controls autoplay width="320" height="240" >
+                        <source src="{{MEDIA_URL}}{{v.File_video}}" type="video/mp4">
+                        </video>
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            {% endfor %}
+        </div> <!-- end of container -->
+    </div>

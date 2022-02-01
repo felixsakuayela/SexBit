@@ -1,0 +1,127 @@
+/* Template: Hight Class
+   Author: Félix
+   Created: 2021
+*/
+
+.im{
+    display: inline-block;
+    position: relative;
+    float:right;
+}
+.imgx{
+    width: 3rem;
+    height: 3rem;
+}
+
+.form-2 .list-unstyled .fas,
+.form-2 .list-unstyled .fab {
+	margin-right: 0.5rem;
+	font-size: 2rem;
+	color: #eea70f;
+}
+.form-2 .list-unstyled .fas2,
+.form-2 .list-unstyled .fab2 {
+	margin-right: 0.5rem;
+	font-size: 2rem;
+	color: #c12627;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.num {
+	font-size: 2rem;
+}
+
+.cards-1 .fa-stack-1x {
+	color: #fff;
+	font-size: 2rem;
+}
+
+.navbar-custom .nav-item .nav-link:hover,
+.navbar-custom .nav-item .nav-link.active {
+	color: #ffdd3c;
+}
+
+.tabs .nav-link:hover,
+.tabs .nav-link.active {
+	color: #14bf98;
+}
+
+.link:active {
+	color: #ffdd3c;
+}
+
+.section-title {
+	color: #c12627;
+}
+
+.form-control-submit-button {
+	background-color: #c32b2c;
+	border-color: #c12627;
+}
+
+.form-control-submit-button:hover {
+    color: #c12627;
+	border-color: #c12627;
+}
+
+.btn-solid-lg {
+	background-color: #c32b2c;
+	border-color: #c12627;
+}
+
+.btn-solid-lg:hover {
+    color: #c12627;
+	border-color: #c12627;
+}
+
+.button-color {
+	text-decoration: none;
+	color: white;
+}
+
+.button-color:hover{
+	color: #153e52;
+}
+
+.link-none{
+	text-decoration: none;
+}
+
+.mouse-default: hover{
+	cursor: pointer;
+}
+
+.form-control-input{
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.color-background {
+
+	background-color: #c32b2c;
+}
+
+
+.accordion span[aria-expanded="true"] .circle-numbering{
+	background-color: transparent;
+    color: #c12627;
+	border-color: #c12627;
+}
+
+.accordion span[aria-expanded="true"] .accordion-title {
+	color: #c32b2c;
+}
+
+.accordion .item:hover .accordion-title {
+	color: #c12627;
+}
+
+.accordion .item:hover span[aria-expanded="false"] .circle-numbering {
+	border: 0.125rem solid #c12627;
+	color: #c12627;
+}
+
+

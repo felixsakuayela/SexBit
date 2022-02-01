@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Entrar no Portal {% endblock %}
+
+{% block content %}
+{% if user.is_anonymous %}
+
+
+      <div class="Library">
+         <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" >Nome do Usuário</label>
+                    <input type="text" class="form-control-input" id="username" name="username">
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" >Palavra Passe</label>
+                    <input type="password" class="form-control-input" id="password" name="password">
+                    <div class="help-block with-errors"></div>
+                </div>
+
+
+                <button type="submit" class="form-control-submit-button">ENTRAR</button>
+
+            </form>
+             <br>
+
+                <a href="/accounts/register"><button type="submit" class="form-control-submit-button">NÃO TENHO CONTA, CRIAR</button></a>
+
+
+         </div>
+      </div>
+
+{% endif %}
+{% endblock %}

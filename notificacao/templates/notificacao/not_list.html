@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Notificações de {{ request.user }}{% endblock %}
+
+{% block content %}
+<div id="intro2" class="form-2">
+	<div class="bc3 align-center counter container">
+		<div class="row">
+                <div class="col-lg-5">
+                    <div class="text-container">
+						{% for not in not_all %}
+						<a class="nav-link page-scroll" href="{% url not.link_name not.notification_id%}">
+
+						{% if not.notificacao_alert == '1' %}
+							<div class="section-title">{{not.owner}} assinou-te a ti</div>
+						{% elif not.notificacao_alert == '2' %}
+							<div class="section-title">{{not.owner}} enviou-te mensagem</div>
+						{% elif not.notificacao_alert == '3' %}
+							<div class="section-title">{{not.owner}} comentou na tua foto de perfil</div>
+						{% elif not.notificacao_alert == '4' %}
+							<div class="section-title">{{not.owner}} reagiu na tua foto de perfil</div>
+						{% elif not.notificacao_alert == '5' %}
+							<div class="section-title">{{not.owner}} reagiu a um comentario na tua foto de perfil</div>
+						{% elif not.notificacao_alert == '6' %}
+							<div class="section-title">{{not.owner}} respondeu a um comentario na tua foto de perfil</div>
+						{% elif not.notificacao_alert == '7' %}
+							<div class="section-title">{{not.owner}} reagiu na tua publicação</div>
+						{% elif not.notificacao_alert == '8' %}
+							<div class="section-title">{{not.owner}} reagiu a um comentario na tua publicação</div>
+						{% elif not.notificacao_alert == '9' %}
+							<div class="section-title">{{not.owner}} respondeu a um comentario na tua publicação</div>
+						{% elif not.notificacao_alert == '10' %}
+							<div class="section-title">{{not.owner}} comentou na tua publicação</div>
+						{% elif not.notificacao_alert == '11' %}
+							<div class="section-title">{{not.owner}} deixou de ser teu assinante</div>
+						{% endif %}
+
+						</a>
+						{% endfor %}
+					</div> <!-- end of container -->
+				</div> <!-- end of container -->
+		</div> <!-- end of container -->
+	</div> <!-- end of container -->
+</div> <!-- end of basic-1 -->
+{% endblock %}

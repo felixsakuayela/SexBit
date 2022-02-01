@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Minha Sala {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="{% url 'index' %}">
+                <span class="mouse-default btn-solid-lg page-scroll">
+                <span class="">VOLTAR</span>
+                </span>
+            </a>
+            <a href="{% url 'postar' perfil.id %}">
+                <span class="mouse-default btn-solid-lg page-scroll">
+                <span class="">POSTAR</span>
+                </span>
+            </a>
+
+        </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<hr>
+
+    <br>
+            <!-- Accordion -->
+    <div class="accordion-container" id="accordionOne">
+
+       <div class="bc2 container">
+            <div id="details" class="accordion">
+
+                <div></div><!-- end of area-1 on same line and no space between comments to eliminate margin white space -->
+
+
+                <div class="bot-pers2" id="headingTwo">
+                    <span class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="button">
+                        <span class="circle-numbering">#</span><span class="accordion-title">Sobre {{nome}}</span>
+                    </span>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionOne">
+                    <div class="accordion-body">
+                    Residência: {{residencia}}<br>
+                    Gênero: {{sexo}}<br>
+                    Idade: {{idade}}
+                    </div>
+                </div>
+
+            </div>
+       </div>
+            <!-- end of accordion -->
+    </div> <!-- end of accordion -->
+
+
+<div id="intro" class="form-2">
+
+        <div class="bc3 align-center counter container">
+            {% for f in foto %}
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="text-container">
+
+                        <div class="section-title">{{ f.Nome_foto }}</div>
+                        <h2>{{ f.Titulo_foto }}</h2>
+                        <ul class="list-unstyled li-space-lg">
+                            <li><a href=""><i class="fab2 fab fa-bitcoin"></i></a><span class="num">76</span></li>
+                            <li><a href=""><i class="fab fa-bitcoin"></i></a><span class="num">1288</span></li>
+                        </ul>
+
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-7">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{{MEDIA_URL}}{{f.File_foto}}">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            {% endfor %}
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of intro -->
+
+        <div class="bc4 container">
+            <div id="details4" class="accordion">
+                <div>
+                </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2">
+
+                    <!-- Accordion -->
+                        <h3>USUÁRIOS</h3><br>
+                        {% for link in usuarios %}
+                        {% if link.username != None %}
+                        <div class="item">
+                            <div id="headingThree4">
+
+                                <span class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="button">
+                                    <a href="{% url 'sala' link.id %}" >
+                                        <span class="circle-numbering">1</span><span class="accordion-title">{{link}}</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div> <!-- end of item -->
+                        {% endif%}
+                        {% endfor %}
+
+                    <!-- end of accordion -->
+
+                </div> <!-- end of area-2 -->
+            </div> <!-- end of accordion -->
+        </div>
+<br>
+
+        <div class="bc5 container">
+            <div id="details2" class="accordion">
+                <div>
+                    <h3>PERSONALIZAÇÃO DO MEU PERFIL</h3><br>
+                </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2">
+
+                    <!-- Accordion -->
+                    <div class="item">
+                        <div id="headingThree2">
+
+                            <span class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="button">
+                                        <a href="{% url 'editar-perfil' %}" ><span class="circle-numbering">#</span><span class="accordion-title">Editar Perfill</span></a>
+                            </span>
+                        </div>
+                    </div> <!-- end of item -->
+
+
+                    <div class="item">
+                        <div id="headinThree3">
+
+                            <span class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="button">
+                                        <a href="{% url 'foto' user.id %}"><span class="circle-numbering">#</span><span class="accordion-title">Carregar Foto de Perfil</span></a>
+                            </span>
+                        </div>
+                     </div>
+
+                    <div class="item">
+                        <div id="headinThree4">
+
+                            <span class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="button">
+                                        <a href=""><span class="circle-numbering">#</span><span class="accordion-title">CARTEIRA BITSEX</span></a>
+                            </span>
+                        </div>
+                     </div>
+
+
+                </div>
+            </div>
+        </div>
+
+{% endif %}
+
+{% endblock %}
